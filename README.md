@@ -20,8 +20,8 @@ Este projeto demonstra a implementação de Cross-Origin Resource Sharing (CORS)
 
 1. Clone o repositório:
    ```
-   git clone https://github.com/seu-usuario/CORSDemo.git
-   cd CORSDemo
+   git clone https://github.com/diogocostadev/Exemplo_CORS
+   cd Exemplo_CORS
    ```
 
 2. Restaure os pacotes:
