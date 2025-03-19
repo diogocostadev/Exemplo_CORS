@@ -1,0 +1,55 @@
+@CORS_API_HostAddress = http://localhost:5241
+
+### Teste da política CORS padrão
+# @name defaultPolicy
+GET {{CORS_API_HostAddress}}/api/cors/default
+Accept: application/json
+Origin: http://localhost:3000
+
+### Teste da política CORS específica (AllowAll)
+# @name specificPolicy
+GET {{CORS_API_HostAddress}}/api/cors/specific
+Accept: application/json
+Origin: http://localhost:3000
+
+### Teste da rota com CORS desativado
+# @name disabledCors
+GET {{CORS_API_HostAddress}}/api/cors/disabled
+Accept: application/json
+Origin: http://localhost:3000
+
+### Teste de método POST com CORS
+# @name postMethod
+POST {{CORS_API_HostAddress}}/api/cors/methodtest
+Content-Type: application/json
+Origin: http://localhost:3000
+
+{
+  "name": "Teste de CORS",
+  "message": "Esta é uma requisição POST para testar CORS"
+}
+
+### Simulação de requisição preflight OPTIONS
+# @name preflightRequest
+OPTIONS {{CORS_API_HostAddress}}/api/cors/preflight
+Origin: http://localhost:3000
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: Content-Type, Authorization
+
+### Teste de CORS com credenciais
+# @name credentialsTest
+GET {{CORS_API_HostAddress}}/api/cors/credentials
+Accept: application/json
+Origin: http://localhost:3000
+
+### Teste com origem não permitida (em produção)
+# @name notAllowedOrigin
+GET {{CORS_API_HostAddress}}/api/cors/default
+Accept: application/json
+Origin: http://malicious-site.com
+
+### Teste com origem permitida (em produção)
+# @name allowedOrigin
+GET {{CORS_API_HostAddress}}/api/cors/default
+Accept: application/json
+Origin: https://app.seudominio.com
